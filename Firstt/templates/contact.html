@@ -7,13 +7,13 @@
     {% load static %}
     <link rel="stylesheet" href="{%  static  'css/contact.css'  %}">
 </head>
-<div class="container">
-    <img class="d-block w-100" src="/static/contact.jpg" class="d-block w-50">
+<div>
+    <img class="d-block w-100" src="/static/contact.jpg" class="d-block w-20" height="200px" style="object-fit: cover;">
 </div>
 <div class="container">
     <h1 class="text-center"> Contact Us</h1>
     <h2> If you want to connect with us:</h2>
-    <form method="POST" action="/Contact">
+    <form method="POST" action="{% url 'contact' %}">
         {% csrf_token %}
         <div class="mb-3">
             <label class="form-label">Email:</label>

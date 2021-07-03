@@ -1,29 +1,30 @@
-from django.http import request
-from django.shortcuts import render,HttpResponse
-# from datetime import datetime
-from home.models import Contact
-from home.models import Image
+from django.shortcuts import render 
 from django.contrib import messages
 
+from .models import Contact, Image
 
-def index (request):
-    pics=Image.objects.all()
-    return render(request, 'index.html',{"pics":pics})
 
-def about (request):
+def index(request):
+    pics = Image.objects.all()
+    return render(request, 'index.html', {"pics":pics})
+
+
+def about(request):
     return render (request, 'about.html')
 
 
-def contact (request):
+def contact(request):
     if request.method == "POST":
-        Email = request.POST.get('email')
-        Address = request.POST.get('address')
-        Firstname = request.POST.get('first_name')
-        Lastname = request.POST.get('last_name')
-        contact = Contact( Email=Email, Address=Address , Firstname=Firstname , Lastname=Lastname)
-        contact.save()
+        email = request.POST.get('email')
+        address = request.POST.get('address')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        Contact.objects.create(email=email,
+          address=address,
+          first_name=first_name,
+          last_name=last_name
+          )
         messages.success(request, 'Your details has been saved')
-
     return render (request, 'contact.html')
 
 
