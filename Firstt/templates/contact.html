@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Contact{% endblock title %}
+{% block body %}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{%  static  'css/contact.css'  %}">
+</head>
+<div class="container">
+    <img class="d-block w-100" src="/static/contact.jpg" class="d-block w-50">
+</div>
+<div class="container">
+    <h1 class="text-center"> Contact Us</h1>
+    <h2> If you want to connect with us:</h2>
+    <form method="POST" action="/Contact">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Email:</label>
+            <input required type="Email" name="email" class="form-control" placeholder="Email">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Address:</label>
+            <input required type="Address" name="address" class="form-control" placeholder="Address">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">First Name:</label>
+            <input required type="FirstName" name="first_name" class="form-control" placeholder="First Name">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Last Name:</label>
+            <input required type="LastName" name="last_name" class="form-control" placeholder="Last Name">
+        </div>
+        <button type="Submit" class="btn btn-success my-4">Submit</button>
+</div>
+
+{% endblock body %}
