@@ -1,16 +1,16 @@
 from django.db import models
-from django.db.models.base import Model
 
-# Create your models here.
-class Contact (models.Model):
-    Email = models.CharField( max_length=120)
-    Address = models.CharField(max_length=120)
-    Firstname = models.CharField(max_length=120)
-    Lastname = models.CharField(max_length=120)
-    # date = models.DateField(),
+
+class Contact(models.Model):
+    email = models.CharField( max_length=120)
+    address = models.CharField(max_length=120)
+    first_name = models.CharField(max_length=120)
+    last_name = models.CharField(max_length=120)
    
-class Image (models.Model):
-    Image = models.ImageField(upload_to="img/%y")
-    Description = models.CharField(max_length=120)
+
+class Image(models.Model):
+    image = models.ImageField(upload_to="img/%y")
+    description = models.CharField(max_length=120)
+    
     def __str__(self):
         return self.Description

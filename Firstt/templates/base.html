@@ -17,12 +17,12 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-dark ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="/About">About</a>
-                <a class="nav-item nav-link" href="/Contact">Contact</a>
+                <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
+                <a class="nav-item nav-link" href="{% url 'contact' %}">Contact</a>
 
             </div>
         </div>

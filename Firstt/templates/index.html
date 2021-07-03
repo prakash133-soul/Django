@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock title %}
 {% block body %} 
-<div class=container">
+<div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -33,15 +33,18 @@
 </div>
 <div class="container my-2 text-center">
     <h1> Choose Product:</h1>
-    <div class="card">
-       <div class="card-item">
+    <div class="row">
         {% for x in pics %}
-        <img src="{{x.Image.url}}" class="img-fluid" alt="Responsive image" style="width:"100%">
-        <div class="container">
-            <p class="lead">{{x.Description}}</p>
-            {% endfor %}
-        </div>
+        <div class="card col-3 mb-2">
+            <img class="card-img-top" src="{{x.image.url}}" alt="{{x.description}}">
+            <div class="card-body">
+              <p class="card-text">{{x.description}}</p>
+            </div>
+          </div>
+        {% endfor %}
     </div>
+
+      
 </div>
 
 
